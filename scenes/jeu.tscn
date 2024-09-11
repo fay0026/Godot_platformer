@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhljpvgjyv2jw"]
+[gd_scene load_steps=5 format=3 uid="uid://dhljpvgjyv2jw"]
 
 [ext_resource type="PackedScene" uid="uid://cxcdd5y67f5u8" path="res://scenes/monde.tscn" id="1_tj32t"]
 [ext_resource type="PackedScene" uid="uid://bvcqpoxfstguq" path="res://scenes/personnage.tscn" id="2_xdqh2"]
 [ext_resource type="PackedScene" uid="uid://cnb4o7w4qjhfm" path="res://scenes/diamants.tscn" id="3_0ebwt"]
+[ext_resource type="PackedScene" uid="uid://c621ubyjq1hsm" path="res://scenes/death.tscn" id="4_djnxf"]
 
 [node name="Jeu" type="Node2D"]
 
@@ -15,3 +16,15 @@ position = Vector2(174, 119)
 
 [node name="Area2D" parent="." instance=ExtResource("3_0ebwt")]
 position = Vector2(321, 324)
+
+[node name="death" parent="." instance=ExtResource("4_djnxf")]
+position = Vector2(196, 381)
+
+[node name="death2" parent="." instance=ExtResource("4_djnxf")]
+position = Vector2(517, 301)
+
+[node name="death3" parent="." instance=ExtResource("4_djnxf")]
+position = Vector2(491, 301)
+
+[node name="death4" parent="." instance=ExtResource("4_djnxf")]
+position = Vector2(466, 301)

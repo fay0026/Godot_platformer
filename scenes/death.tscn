@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c621ubyjq1hsm"]
+
+[ext_resource type="Script" path="res://scenes/death.gd" id="1_odt0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_700v4"]
+size = Vector2(20, 10)
+
+[node name="death" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_odt0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_700v4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
