@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnb4o7w4qjhfm"]
+
+[ext_resource type="Script" path="res://scenes/diamants.gd" id="1_m5yuy"]
+[ext_resource type="Texture2D" uid="uid://bc7g365tay5o" path="res://Assets/sprites/tile_0148.png" id="2_244yg"]
+[ext_resource type="Texture2D" uid="uid://br0w6ot0aojkq" path="res://Assets/sprites/tile_0067.png" id="3_urfwi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n0i60"]
+radius = 4.0
+height = 12.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l6rxy"]
+particle_flag_disable_z = true
+direction = Vector3(0, -360, 0)
+spread = 5.0
+initial_velocity_min = 90.0
+initial_velocity_max = 90.0
+gravity = Vector3(0, 98, 0)
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_m5yuy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_244yg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n0i60")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_l6rxy")
+texture = ExtResource("3_urfwi")
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
