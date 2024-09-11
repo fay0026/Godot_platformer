@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvcqpoxfstguq"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_nw3vc"]
+[ext_resource type="Texture2D" uid="uid://cvl50n0giglrt" path="res://Assets/sprites/tile_0002.png" id="2_4rlrh"]
+[ext_resource type="Texture2D" uid="uid://darrmdmryqggx" path="res://Assets/sprites/tile_0003.png" id="3_1rrom"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2lpkw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4rlrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1rrom")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6780u"]
+size = Vector2(8, 12.5)
+
+[node name="Personnage" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_nw3vc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -6)
+scale = Vector2(0.421132, 0.516667)
+sprite_frames = SubResource("SpriteFrames_2lpkw")
+animation = &"new_animation"
+frame_progress = 0.704091
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -5.75)
+shape = SubResource("RectangleShape2D_6780u")
+metadata/_edit_lock_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../CharacterBody2D/Camera2D")

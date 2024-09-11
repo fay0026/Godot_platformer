@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhljpvgjyv2jw"]
+
+[ext_resource type="PackedScene" uid="uid://cxcdd5y67f5u8" path="res://scenes/monde.tscn" id="1_tj32t"]
+[ext_resource type="PackedScene" uid="uid://bvcqpoxfstguq" path="res://scenes/personnage.tscn" id="2_xdqh2"]
+
+[node name="Jeu" type="Node2D"]
+
+[node name="monde" parent="." instance=ExtResource("1_tj32t")]
+
+[node name="Personnage" parent="." instance=ExtResource("2_xdqh2")]
+position = Vector2(174, 119)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
