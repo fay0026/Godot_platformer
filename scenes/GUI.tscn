@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://kay8r2p0gb5m"]
+[gd_scene load_steps=6 format=3 uid="uid://kay8r2p0gb5m"]
 
+[ext_resource type="Script" path="res://scenes/scripts/gui.gd" id="1_brsg3"]
 [ext_resource type="Texture2D" uid="uid://br0w6ot0aojkq" path="res://Assets/sprites/tile_0067.png" id="1_w7kkm"]
 [ext_resource type="Texture2D" uid="uid://dk7ibipx5xrgj" path="res://Assets/sprites/tile_0044.png" id="2_gomml"]
 [ext_resource type="Texture2D" uid="uid://d3ox3j2wg4g74" path="res://Assets/sprites/frozen_health.png" id="3_s4aqj"]
 [ext_resource type="Texture2D" uid="uid://bvrq0v5kb01hn" path="res://Assets/sprites/health.png" id="4_d2u18"]
 
 [node name="Gui" type="CanvasLayer"]
+script = ExtResource("1_brsg3")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -16,6 +18,7 @@ size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
 [node name="BoxContainer" type="BoxContainer" parent="Control"]
+layout_mode = 0
 offset_left = 32.0
 offset_top = 42.0
 offset_right = 72.0
@@ -32,6 +35,7 @@ text = "0"
 metadata/_edit_lock_ = true
 
 [node name="BoxContainer3" type="BoxContainer" parent="Control"]
+layout_mode = 0
 offset_left = 80.0
 offset_top = 43.0
 offset_right = 120.0
@@ -44,24 +48,24 @@ metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Control/BoxContainer3"]
 layout_mode = 2
-text = "0"
+text = "3"
 metadata/_edit_lock_ = true
 
-[node name="BoxContainer4" type="BoxContainer" parent="Control"]
+[node name="hp_bar" type="BoxContainer" parent="Control"]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 14.0
 offset_right = 123.0
 offset_bottom = 38.0
 
-[node name="Label" type="Label" parent="Control/BoxContainer4"]
+[node name="Label" type="Label" parent="Control/hp_bar"]
 layout_mode = 2
 text = "HP"
 metadata/_edit_lock_ = true
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/BoxContainer4"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/hp_bar"]
 layout_mode = 2
-step = 3.0
+max_value = 9.0
 texture_under = ExtResource("3_s4aqj")
 texture_progress = ExtResource("4_d2u18")
 metadata/_edit_lock_ = true

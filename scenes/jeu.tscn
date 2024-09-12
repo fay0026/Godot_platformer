@@ -1,13 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhljpvgjyv2jw"]
+[gd_scene load_steps=8 format=3 uid="uid://dhljpvgjyv2jw"]
 
 [ext_resource type="PackedScene" uid="uid://cxcdd5y67f5u8" path="res://scenes/monde.tscn" id="1_tj32t"]
 [ext_resource type="PackedScene" uid="uid://bvcqpoxfstguq" path="res://scenes/personnage.tscn" id="2_xdqh2"]
-[ext_resource type="PackedScene" uid="uid://cnb4o7w4qjhfm" path="res://scenes/diamants.tscn" id="3_0ebwt"]
+[ext_resource type="PackedScene" uid="uid://cnb4o7w4qjhfm" path="res://scenes/bouton.tscn" id="3_0ebwt"]
 [ext_resource type="PackedScene" uid="uid://c621ubyjq1hsm" path="res://scenes/death.tscn" id="4_djnxf"]
+[ext_resource type="PackedScene" uid="uid://did53m4tnvbix" path="res://scenes/spikes.tscn" id="5_feq12"]
+[ext_resource type="PackedScene" uid="uid://dwgsg5k1qfk1e" path="res://scenes/diamant.tscn" id="5_o27fm"]
+[ext_resource type="PackedScene" uid="uid://kay8r2p0gb5m" path="res://scenes/GUI.tscn" id="6_wmjdj"]
 
 [node name="Jeu" type="Node2D"]
 
 [node name="monde" parent="." instance=ExtResource("1_tj32t")]
+
+[node name="bouton" parent="monde" instance=ExtResource("3_0ebwt")]
+position = Vector2(321, 324)
+
+[node name="death2" parent="monde" instance=ExtResource("4_djnxf")]
+position = Vector2(517, 301)
+
+[node name="death3" parent="monde" instance=ExtResource("4_djnxf")]
+position = Vector2(491, 301)
+
+[node name="death4" parent="monde" instance=ExtResource("4_djnxf")]
+position = Vector2(466, 301)
+
+[node name="spikes" parent="monde" instance=ExtResource("5_feq12")]
+position = Vector2(195, 377)
+scale = Vector2(2, 2)
+
+[node name="spikes2" parent="monde" instance=ExtResource("5_feq12")]
+position = Vector2(213, 377)
+scale = Vector2(2, 2)
+
+[node name="spikes3" parent="monde" instance=ExtResource("5_feq12")]
+position = Vector2(231, 377)
+scale = Vector2(2, 2)
+
+[node name="Diamant" parent="monde" instance=ExtResource("5_o27fm")]
+position = Vector2(267, 145)
+
+[node name="Diamant2" parent="monde" instance=ExtResource("5_o27fm")]
+position = Vector2(438, 96)
+
+[node name="Diamant3" parent="monde" instance=ExtResource("5_o27fm")]
+position = Vector2(444, 439)
+
+[node name="Diamant4" parent="monde" instance=ExtResource("5_o27fm")]
+position = Vector2(195, 353)
+
+[node name="Diamant5" parent="monde" instance=ExtResource("5_o27fm")]
+position = Vector2(481, 199)
 
 [node name="Personnage" parent="." instance=ExtResource("2_xdqh2")]
 position = Vector2(174, 119)
@@ -15,23 +57,18 @@ scale = Vector2(0.2, 0.2)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-[node name="Area2D" parent="." instance=ExtResource("3_0ebwt")]
-position = Vector2(321, 324)
+[node name="Gui" parent="." instance=ExtResource("6_wmjdj")]
 
-[node name="death" parent="." instance=ExtResource("4_djnxf")]
-position = Vector2(194, 381)
-
-[node name="death5" parent="." instance=ExtResource("4_djnxf")]
-position = Vector2(213, 381)
-
-[node name="death6" parent="." instance=ExtResource("4_djnxf")]
-position = Vector2(232, 381)
-
-[node name="death2" parent="." instance=ExtResource("4_djnxf")]
-position = Vector2(517, 301)
-
-[node name="death3" parent="." instance=ExtResource("4_djnxf")]
-position = Vector2(491, 301)
-
-[node name="death4" parent="." instance=ExtResource("4_djnxf")]
-position = Vector2(466, 301)
+[connection signal="watabebad" from="monde/death2" to="Personnage" method="_on_death_watabebad"]
+[connection signal="watabebad" from="monde/death3" to="Personnage" method="_on_death_watabebad"]
+[connection signal="watabebad" from="monde/death4" to="Personnage" method="_on_death_watabebad"]
+[connection signal="ouch" from="monde/spikes" to="Personnage" method="_on_spikes_ouch"]
+[connection signal="ouch" from="monde/spikes2" to="Personnage" method="_on_spikes_ouch"]
+[connection signal="ouch" from="monde/spikes3" to="Personnage" method="_on_spikes_ouch"]
+[connection signal="diamond" from="monde/Diamant" to="Gui" method="_on_diamant_diamond"]
+[connection signal="diamond" from="monde/Diamant2" to="Gui" method="_on_diamant_diamond"]
+[connection signal="diamond" from="monde/Diamant3" to="Gui" method="_on_diamant_diamond"]
+[connection signal="diamond" from="monde/Diamant4" to="Gui" method="_on_diamant_diamond"]
+[connection signal="diamond" from="monde/Diamant5" to="Gui" method="_on_diamant_diamond"]
+[connection signal="health_changed" from="Personnage" to="Gui" method="_on_personnage_health_changed"]
+[connection signal="lost_life" from="Personnage" to="Gui" method="_on_personnage_lost_life"]
