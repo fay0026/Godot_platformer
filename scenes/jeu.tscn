@@ -11,6 +11,7 @@
 
 [node name="Personnage" parent="." instance=ExtResource("2_xdqh2")]
 position = Vector2(174, 119)
+scale = Vector2(0.2, 0.2)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
@@ -18,7 +19,13 @@ position = Vector2(174, 119)
 position = Vector2(321, 324)
 
 [node name="death" parent="." instance=ExtResource("4_djnxf")]
-position = Vector2(196, 381)
+position = Vector2(194, 381)
+
+[node name="death5" parent="." instance=ExtResource("4_djnxf")]
+position = Vector2(213, 381)
+
+[node name="death6" parent="." instance=ExtResource("4_djnxf")]
+position = Vector2(232, 381)
 
 [node name="death2" parent="." instance=ExtResource("4_djnxf")]
 position = Vector2(517, 301)

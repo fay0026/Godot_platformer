@@ -20,13 +20,13 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
-		$AnimatedSprite2D.play("walk")
+		$AnimatedSprite2D.play("Raptor_walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$AnimatedSprite2D.stop()
 	if direction == 1 :
-		$AnimatedSprite2D.flip_h = true;
-	else :
 		$AnimatedSprite2D.flip_h = false;
+	else :
+		$AnimatedSprite2D.flip_h = true;
 
 	move_and_slide()
