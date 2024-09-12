@@ -18,7 +18,6 @@ func _on_spikes_ouch():
 		lives = 3
 		HP = 9
 		game_over.emit()
-		get_tree().reload_current_scene();
 		
 func _on_death_watabebad():
 	if lives != 1:
@@ -29,7 +28,6 @@ func _on_death_watabebad():
 		lives = 3
 		HP = 9
 		game_over.emit()
-		get_tree().reload_current_scene();
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
