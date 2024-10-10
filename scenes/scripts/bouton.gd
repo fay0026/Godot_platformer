@@ -1,6 +1,7 @@
 extends Area2D
 @onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
 
+signal diamond
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,4 +16,5 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	gpu_particles_2d.emitting = true
 	await get_tree().create_timer(1.2).timeout
+	diamond.emit(3)
 	queue_free()

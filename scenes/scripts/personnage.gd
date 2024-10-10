@@ -8,32 +8,31 @@ signal game_over
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -375.0
+ #var collision = move_and_collide(velocity * delta)
 
 func _on_spikes_ouch():
 	HP -= 1
 	if HP != 0 :
 		health_changed.emit(HP);
 	elif lives != 1:
+		transform.origin = Vector2(174, 119)
 		lives -= 1
 		lost_life.emit(lives)
-		print(position)
-		print(global_position)
-		to_global(Vector2(174, 119))
 		HP = 9;
 	else :
+		transform.origin = Vector2(1000, 1000)
 		lives = 3
 		HP = 9
 		game_over.emit()
 		
 func _on_death_instakill():
 	if lives != 1:
+		transform.origin = Vector2(174, 119)
 		lives -= 1
 		lost_life.emit(lives)
-		print(position) 
-		print(global_position)
-		transform.origin = Vector2(174, 119)
 		HP = 9;
 	else :
+		transform.origin = Vector2(1000, 1000)
 		lives = 3
 		HP = 9
 		game_over.emit()

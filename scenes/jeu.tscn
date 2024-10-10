@@ -21,13 +21,14 @@ position = Vector2(321, 324)
 position = Vector2(467, -38)
 
 [node name="death2" parent="monde" instance=ExtResource("4_djnxf")]
-position = Vector2(517, 301)
+position = Vector2(541, 348)
 
 [node name="death3" parent="monde" instance=ExtResource("4_djnxf")]
-position = Vector2(491, 301)
+position = Vector2(492, 317)
+scale = Vector2(3.6, 3.6)
 
 [node name="death4" parent="monde" instance=ExtResource("4_djnxf")]
-position = Vector2(466, 301)
+position = Vector2(442, 338)
 
 [node name="spikes" parent="monde" instance=ExtResource("5_feq12")]
 position = Vector2(195, 377)
@@ -79,6 +80,8 @@ scale = Vector2(0.2, 0.2)
 [node name="GameOver" parent="." instance=ExtResource("8_m5ye8")]
 visible = false
 
+[connection signal="diamond" from="monde/bouton" to="Gui" method="_on_diamant_diamond"]
+[connection signal="diamond" from="monde/bouton2" to="Gui" method="_on_diamant_diamond"]
 [connection signal="instakill" from="monde/death2" to="Personnage" method="_on_death_instakill"]
 [connection signal="instakill" from="monde/death3" to="Personnage" method="_on_death_instakill"]
 [connection signal="instakill" from="monde/death4" to="Personnage" method="_on_death_instakill"]
