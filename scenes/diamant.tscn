@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwgsg5k1qfk1e"]
 
-[ext_resource type="Script" path="res://scenes/diamant.gd" id="1_7is6o"]
+[ext_resource type="Script" path="res://scenes/scripts/diamant.gd" id="1_7is6o"]
 [ext_resource type="Texture2D" uid="uid://br0w6ot0aojkq" path="res://Assets/sprites/tile_0067.png" id="1_db1py"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y2lbp"]

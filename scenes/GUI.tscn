@@ -69,3 +69,20 @@ max_value = 9.0
 texture_under = ExtResource("3_s4aqj")
 texture_progress = ExtResource("4_d2u18")
 metadata/_edit_lock_ = true
+
+[node name="BoxContainer2" type="BoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 64.0
+offset_right = 123.0
+offset_bottom = 82.0
+
+[node name="Label" type="Label" parent="Control/BoxContainer2"]
+layout_mode = 2
+text = "Score :"
+metadata/_edit_lock_ = true
+
+[node name="LabelScore" type="Label" parent="Control/BoxContainer2"]
+layout_mode = 2
+text = "0"
+metadata/_edit_lock_ = true

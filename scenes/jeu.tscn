@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhljpvgjyv2jw"]
+[gd_scene load_steps=9 format=3 uid="uid://dhljpvgjyv2jw"]
 
 [ext_resource type="PackedScene" uid="uid://cxcdd5y67f5u8" path="res://scenes/monde.tscn" id="1_tj32t"]
 [ext_resource type="PackedScene" uid="uid://bvcqpoxfstguq" path="res://scenes/personnage.tscn" id="2_xdqh2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://did53m4tnvbix" path="res://scenes/spikes.tscn" id="5_feq12"]
 [ext_resource type="PackedScene" uid="uid://dwgsg5k1qfk1e" path="res://scenes/diamant.tscn" id="5_o27fm"]
 [ext_resource type="PackedScene" uid="uid://kay8r2p0gb5m" path="res://scenes/GUI.tscn" id="6_wmjdj"]
+[ext_resource type="PackedScene" uid="uid://dng1a81ll0wj8" path="res://scenes/game_over.tscn" id="8_m5ye8"]
 
 [node name="Jeu" type="Node2D"]
 
@@ -59,6 +60,9 @@ scale = Vector2(0.2, 0.2)
 
 [node name="Gui" parent="." instance=ExtResource("6_wmjdj")]
 
+[node name="GameOver" parent="." instance=ExtResource("8_m5ye8")]
+visible = false
+
 [connection signal="watabebad" from="monde/death2" to="Personnage" method="_on_death_watabebad"]
 [connection signal="watabebad" from="monde/death3" to="Personnage" method="_on_death_watabebad"]
 [connection signal="watabebad" from="monde/death4" to="Personnage" method="_on_death_watabebad"]
@@ -70,5 +74,6 @@ scale = Vector2(0.2, 0.2)
 [connection signal="diamond" from="monde/Diamant3" to="Gui" method="_on_diamant_diamond"]
 [connection signal="diamond" from="monde/Diamant4" to="Gui" method="_on_diamant_diamond"]
 [connection signal="diamond" from="monde/Diamant5" to="Gui" method="_on_diamant_diamond"]
+[connection signal="game_over" from="Personnage" to="GameOver" method="_on_personnage_game_over"]
 [connection signal="health_changed" from="Personnage" to="Gui" method="_on_personnage_health_changed"]
 [connection signal="lost_life" from="Personnage" to="Gui" method="_on_personnage_lost_life"]
