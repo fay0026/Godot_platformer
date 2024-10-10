@@ -25,6 +25,7 @@ func _on_personnage_lost_life(lives_left) -> void:
 	health.value = 9
 	lives.text = str(lives_left)
 	
+	
 func _on_diamant_diamond(value) -> void:
 	diamonds_total += value
 	score_var += value*100

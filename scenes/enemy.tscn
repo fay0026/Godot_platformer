@@ -1,0 +1,156 @@
+[gd_scene load_steps=21 format=3 uid="uid://dkv2m1q7vc1ia"]
+
+[ext_resource type="Texture2D" uid="uid://chsk3ohe2fkdk" path="res://Assets/sprites/Invisible_raptor.png" id="1_ma3rx"]
+[ext_resource type="Script" path="res://scenes/scripts/enemy.gd" id="1_rahut"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgby7"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(0, 0, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2yuh"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(336, 0, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78yc0"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(672, 0, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj7kr"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(1008, 0, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg5yh"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(1344, 0, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76nmk"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(1680, 0, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubbdf"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(0, 240, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftlq4"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(336, 240, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gj3w"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(672, 240, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1gh1"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(1008, 240, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xohxa"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(1344, 240, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1ceh"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(1680, 240, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7cfr"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(0, 480, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij3k8"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(336, 480, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qvfn"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(672, 480, 336, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss4ed"]
+atlas = ExtResource("1_ma3rx")
+region = Rect2(1008, 480, 336, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xct1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgby7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2yuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78yc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj7kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg5yh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76nmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubbdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftlq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gj3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1gh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xohxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ceh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7cfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij3k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qvfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss4ed")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_os7i7"]
+radius = 14.0
+height = 42.0
+
+[node name="Ennemy_tscn" type="CharacterBody2D"]
+script = ExtResource("1_rahut")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(3, 3, 3, 1)
+self_modulate = Color(1, 1, 0.854902, 1)
+scale = Vector2(0.25, 0.325)
+sprite_frames = SubResource("SpriteFrames_xct1f")
+speed_scale = 3.0
+metadata/_edit_lock_ = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(26, 0)
+metadata/_edit_lock_ = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+target_position = Vector2(-31, 0)
+metadata/_edit_lock_ = true
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+target_position = Vector2(0, 30)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_os7i7")

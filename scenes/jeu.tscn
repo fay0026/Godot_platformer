@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhljpvgjyv2jw"]
+[gd_scene load_steps=10 format=3 uid="uid://dhljpvgjyv2jw"]
 
 [ext_resource type="PackedScene" uid="uid://cxcdd5y67f5u8" path="res://scenes/monde.tscn" id="1_tj32t"]
 [ext_resource type="PackedScene" uid="uid://bvcqpoxfstguq" path="res://scenes/personnage.tscn" id="2_xdqh2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c621ubyjq1hsm" path="res://scenes/death.tscn" id="4_djnxf"]
 [ext_resource type="PackedScene" uid="uid://did53m4tnvbix" path="res://scenes/spikes.tscn" id="5_feq12"]
 [ext_resource type="PackedScene" uid="uid://dwgsg5k1qfk1e" path="res://scenes/diamant.tscn" id="5_o27fm"]
+[ext_resource type="PackedScene" uid="uid://dkv2m1q7vc1ia" path="res://scenes/enemy.tscn" id="6_qxaus"]
 [ext_resource type="PackedScene" uid="uid://kay8r2p0gb5m" path="res://scenes/GUI.tscn" id="6_wmjdj"]
 [ext_resource type="PackedScene" uid="uid://dng1a81ll0wj8" path="res://scenes/game_over.tscn" id="8_m5ye8"]
 
@@ -15,6 +16,9 @@
 
 [node name="bouton" parent="monde" instance=ExtResource("3_0ebwt")]
 position = Vector2(321, 324)
+
+[node name="bouton2" parent="monde" instance=ExtResource("3_0ebwt")]
+position = Vector2(467, -38)
 
 [node name="death2" parent="monde" instance=ExtResource("4_djnxf")]
 position = Vector2(517, 301)
@@ -52,6 +56,18 @@ position = Vector2(195, 353)
 [node name="Diamant5" parent="monde" instance=ExtResource("5_o27fm")]
 position = Vector2(481, 199)
 
+[node name="Ennemy_tscn" parent="monde" instance=ExtResource("6_qxaus")]
+position = Vector2(481, 143)
+scale = Vector2(0.25, 0.25)
+
+[node name="Ennemy_tscn2" parent="monde" instance=ExtResource("6_qxaus")]
+position = Vector2(412, 288)
+scale = Vector2(0.25, 0.25)
+
+[node name="Ennemy_tscn3" parent="monde" instance=ExtResource("6_qxaus")]
+position = Vector2(219, 450)
+scale = Vector2(0.25, 0.25)
+
 [node name="Personnage" parent="." instance=ExtResource("2_xdqh2")]
 position = Vector2(174, 119)
 scale = Vector2(0.2, 0.2)
@@ -63,9 +79,9 @@ scale = Vector2(0.2, 0.2)
 [node name="GameOver" parent="." instance=ExtResource("8_m5ye8")]
 visible = false
 
-[connection signal="watabebad" from="monde/death2" to="Personnage" method="_on_death_watabebad"]
-[connection signal="watabebad" from="monde/death3" to="Personnage" method="_on_death_watabebad"]
-[connection signal="watabebad" from="monde/death4" to="Personnage" method="_on_death_watabebad"]
+[connection signal="instakill" from="monde/death2" to="Personnage" method="_on_death_instakill"]
+[connection signal="instakill" from="monde/death3" to="Personnage" method="_on_death_instakill"]
+[connection signal="instakill" from="monde/death4" to="Personnage" method="_on_death_instakill"]
 [connection signal="ouch" from="monde/spikes" to="Personnage" method="_on_spikes_ouch"]
 [connection signal="ouch" from="monde/spikes2" to="Personnage" method="_on_spikes_ouch"]
 [connection signal="ouch" from="monde/spikes3" to="Personnage" method="_on_spikes_ouch"]
