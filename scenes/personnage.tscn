@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://bvcqpoxfstguq"]
+[gd_scene load_steps=23 format=3 uid="uid://bvcqpoxfstguq"]
 
 [ext_resource type="Script" path="res://scenes/scripts/personnage.gd" id="1_jmf12"]
-[ext_resource type="Script" path="res://scenes/scripts/movement.gd" id="1_nw3vc"]
 [ext_resource type="Texture2D" uid="uid://cvl50n0giglrt" path="res://Assets/sprites/tile_0002.png" id="2_4rlrh"]
 [ext_resource type="Texture2D" uid="uid://chsk3ohe2fkdk" path="res://Assets/sprites/Invisible_raptor.png" id="2_7ldsv"]
 [ext_resource type="Texture2D" uid="uid://darrmdmryqggx" path="res://Assets/sprites/tile_0003.png" id="3_1rrom"]
@@ -141,32 +140,26 @@ animations = [{
 radius = 33.0
 height = 84.0
 
-[node name="Personnage" type="Node2D"]
+[node name="Personnage" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_jmf12")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-collision_layer = 2
-script = ExtResource("1_nw3vc")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
-scale = Vector2(0.421132, 0.516667)
+scale = Vector2(0.4, 0.5)
 sprite_frames = SubResource("SpriteFrames_2lpkw")
 animation = &"Raptor_walk"
-frame = 11
-frame_progress = 0.787654
 speed_scale = 4.0
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nf3cj")
-metadata/_edit_lock_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
-remote_path = NodePath("../CharacterBody2D/Camera2D")
+remote_path = NodePath("../Camera2D")
