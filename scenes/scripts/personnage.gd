@@ -6,7 +6,7 @@ var HP = 9
 signal health_changed
 var lives = 3
 signal lost_life
-signal game_over
+signal game_over_get_score
 signal ennemy_collided
 signal ennemy_defeated
 
@@ -26,7 +26,7 @@ func damage_taken(damage):
 		transform.origin = Vector2(1000, 1000)
 		lives = 3
 		HP = 9
-		game_over.emit()
+		game_over_get_score.emit()
 
 func _on_spikes_ouch():
 	damage_taken(1)
@@ -41,7 +41,7 @@ func _on_death_instakill():
 		transform.origin = Vector2(1000, 1000)
 		lives = 3
 		HP = 9
-		game_over.emit()
+		game_over_get_score.emit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
