@@ -93,6 +93,7 @@ visible = false
 [connection signal="diamond" from="monde/Diamant3" to="Gui" method="_on_diamant_diamond"]
 [connection signal="diamond" from="monde/Diamant4" to="Gui" method="_on_diamant_diamond"]
 [connection signal="diamond" from="monde/Diamant5" to="Gui" method="_on_diamant_diamond"]
+[connection signal="ennemy_defeated" from="Personnage" to="Gui" method="_on_personnage_ennemy_defeated"]
 [connection signal="game_over" from="Personnage" to="GameOver" method="_on_personnage_game_over"]
 [connection signal="health_changed" from="Personnage" to="Gui" method="_on_personnage_health_changed"]
 [connection signal="lost_life" from="Personnage" to="Gui" method="_on_personnage_lost_life"]

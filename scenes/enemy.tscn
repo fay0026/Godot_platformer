@@ -124,8 +124,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_os7i7"]
-radius = 14.0
-height = 42.0
+radius = 15.0
+height = 40.0
 
 [node name="Ennemy_tscn" type="CharacterBody2D"]
 script = ExtResource("1_rahut")
@@ -151,6 +151,6 @@ target_position = Vector2(0, 30)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 3)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_os7i7")

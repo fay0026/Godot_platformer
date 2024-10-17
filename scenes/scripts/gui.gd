@@ -32,4 +32,8 @@ func _on_diamant_diamond(value) -> void:
 	score_var += value*100
 	diamonds.text = str(diamonds_total)
 	score.text = str(score_var)
-	
+
+func _on_personnage_ennemy_defeated() -> void:
+	print('YOU WON')
+	score_var += 50
+	score.text = str(score_var)
