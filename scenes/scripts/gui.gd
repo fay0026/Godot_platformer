@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var health: TextureProgressBar = $Control/hp_bar/TextureProgressBar
 @onready var score: Label = $Control/BoxContainer2/LabelScore
 
+signal diamond(value)
 signal game_over
 
 var diamonds_total = 0
@@ -26,12 +27,6 @@ func _on_personnage_health_changed(HP) -> void:
 func _on_personnage_lost_life(lives_left) -> void:
 	health.value = 9
 	lives.text = str(lives_left)
-	
-func _on_diamant_diamond(value) -> void:
-	diamonds_total += value
-	score_var += value*100
-	diamonds.text = str(diamonds_total)
-	score.text = str(score_var)
 
 func _on_personnage_ennemy_defeated() -> void:
 	score_var += 50
@@ -39,3 +34,10 @@ func _on_personnage_ennemy_defeated() -> void:
 
 func _on_personnage_game_over_get_score() -> void:
 	game_over.emit(score_var)
+
+
+func _on_diamond(value: Variant) -> void:
+	diamonds_total += value
+	score_var += value*100
+	diamonds.text = str(diamonds_total)
+	score.text = str(score_var)

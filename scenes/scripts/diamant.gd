@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
-	diamond.emit(1)
+	body.gui.diamond.emit(1)
 	queue_free()

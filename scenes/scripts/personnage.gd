@@ -9,6 +9,7 @@ signal lost_life
 signal game_over_get_score
 signal ennemy_collided
 signal ennemy_defeated
+@onready var gui: CanvasLayer = $"../Gui"
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -375.0
