@@ -11,4 +11,4 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: CharacterBody2D) -> void:
-	instakill.emit()
+	body.instakill.emit()

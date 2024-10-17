@@ -4,18 +4,21 @@ var damageTimeout = 0.5
 var ennemyTimeout = 0.1
 var HP = 9
 signal health_changed
+signal damage(value)
+signal instakill
 var lives = 3
 signal lost_life
 signal game_over_get_score
 signal ennemy_collided
 signal ennemy_defeated
+
 @onready var gui: CanvasLayer = $"../Gui"
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -375.0
 
-func damage_taken(damage):
-	HP -= damage
+func _on_damage(value):
+	HP -= value
 	if HP > 0 :
 		health_changed.emit(HP);
 	elif lives != 1:
@@ -28,11 +31,8 @@ func damage_taken(damage):
 		lives = 3
 		HP = 9
 		game_over_get_score.emit()
-
-func _on_spikes_ouch():
-	damage_taken(1)
 		
-func _on_death_instakill():
+func _on_instakill():
 	if lives != 1:
 		transform.origin = Vector2(174, 119)
 		lives -= 1
@@ -91,5 +91,5 @@ func _physics_process(delta: float) -> void:
 					ennemyTimeout = 0.1
 			else :
 				if (damageTimeout <= 0):
-					damage_taken(2)
+					self.damage.emit(2)
 					damageTimeout = 0.5

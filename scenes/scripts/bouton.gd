@@ -16,5 +16,5 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	gpu_particles_2d.emitting = true
 	await get_tree().create_timer(1.2).timeout
-	diamond.emit(3)
+	body.gui.diamond.emit(3)
 	queue_free()
